@@ -26,7 +26,7 @@ The REST *call type* is done over HTTP POST.
 
 Example code:
 
-```
+```c#
 RESTClient client = new RESTClient("userid", "apikey");
 var _params = new NameValueCollection();
     _params["list_id"] = "listid";
