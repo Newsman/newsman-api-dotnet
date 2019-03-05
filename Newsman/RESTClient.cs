@@ -25,11 +25,22 @@ namespace NET_Newsman_API_Wrapper
         {
             var response = "";
 
-            using (var client = new WebClient())
-            {                
-                var _response = client.UploadValues(this.REST_Url + _namespace + "." + method + ".json", paramCollection);
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    var _response = client.UploadValues(this.REST_Url + _namespace + "." + method + ".json", paramCollection);
 
-                response = Encoding.Default.GetString(_response);
+                    response = Encoding.Default.GetString(_response);
+                }
+            }
+            catch (WebException ex)
+            {
+                response = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                response = ex.Message;
             }
 
             return response;
