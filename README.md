@@ -27,11 +27,20 @@ The REST *call type* is done over HTTP POST.
 Example code:
 
 ```c#
-RESTClient client = new RESTClient("userid", "apikey");
-var _params = new NameValueCollection();
-    _params["list_id"] = "listid";
-var response = client.CallMethod("subscriber", "saveSubscribe", _params);
+            RESTClient client = new RESTClient("your_user_id", "your_api_key");
 
+            var _params = new NameValueCollection();
+            _params["list_id"] = "list_id";
+            _params["email"] = "test@example.com";
+            _params["firstname"] = "firstname";
+            _params["lastname"] = "lastname";
+            _params["ip"] = "::1";
+            _params["props[source]"] = "source";
+            _params["props[city]"] = "city";
+
+            var response = client.CallMethod("subscriber", "saveSubscribe", _params);
+
+            Response.Write(response);
 ```
 
 # String Encoding
