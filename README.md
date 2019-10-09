@@ -22,8 +22,6 @@ The API exposes XML RPC and REST interfaces.
 
 The REST *call type* is done over HTTP POST.
 
-* using System.Net;
-
 Example code:
 
 ```c#
